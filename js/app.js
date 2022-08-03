@@ -142,7 +142,7 @@ const balance_web = async () => {
 //	);
 	
 	
-	console.log(sttcontract.methods.balanceOf(addr)
+	console.log(sttcontract.methods.balanceOf(addr));
 
 //    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
 //      Swal.fire(
