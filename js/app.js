@@ -1,5 +1,5 @@
 let web3 = new web3js.myweb3(window.ethereum);
-//let ethers = new ethers.providers.Web3Provider(window.ethereum)
+import { ethers } from "js/ethers-5.6.esm.min.js";
 let addr;
 
 const sttaddr = "0x767027A341E08170993Ac6a3679aFB0b5ba7ACDD";
