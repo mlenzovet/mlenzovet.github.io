@@ -136,6 +136,12 @@ const balance_web = async () => {
 	var adjustedBalance = WalletTokenBalance * 10 ** 18;
 	console.log(adjustedBalance);
 	
+	Swal.fire(
+      'Balance',
+      WalletTokenBalance,
+      'info'
+    )
+	
 }
 
 
