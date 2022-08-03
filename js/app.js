@@ -1,7 +1,36 @@
 let web3 = new web3js.myweb3(window.ethereum);
 let addr;
 
-const sttaddr = "0xdd23f59be25ab34d4d7f435fe1a36fa2cab4dde5";
+const sttaddr = "0x767027A341E08170993Ac6a3679aFB0b5ba7ACDD";
+const sttabi_old = [
+  {
+    "inputs": [],
+    "name": "buyOnPresale",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+
 const sttabi = [
   {
     "inputs": [],
@@ -115,7 +144,7 @@ function addToWallet() {
       params: {
         'type': 'ERC20',
         'options': {
-          'address': '0xdd23f59be25ab34d4d7f435fe1a36fa2cab4dde5',
+          'address': '0x767027A341E08170993Ac6a3679aFB0b5ba7ACDD',
           'symbol': 'MTWP',
           'decimals': '18'
         },
