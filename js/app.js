@@ -111,6 +111,62 @@ const buystt = async () => {
 }
 
 
+const balance_web = async () => {
+  await loadweb3();
+  const chainId = await web3.eth.getChainId();
+  if (addr == undefined) {
+    Swal.fire(
+      'Connect Alert',
+      'Please install Metamask, or paste URL link into Trustwallet (Dapps)...',
+      'error'
+    )
+  }
+  if (chainId !== 4) { //Change for LIVE
+    Swal.fire(
+      'Connect Alert',
+      'Please Connect on Rinkeby', //Change for LIVE
+      'error'
+    )
+  }
+
+  //let ethval = document.getElementById("buyinput").value;
+  //if (ethval >= 0.01) {
+  //  ethval = (ethval * Math.pow(10, 18));
+
+	var tokenBalance = await sttcontract.methods.balanceOf(addr).call();
+	tokenBalance = ethers.utils.formatEther(tokenBalance);
+	tokenBalance = (+tokenBalance).toFixed(4);
+	Swal.fire(
+	'Token balance',
+	tokenBalance
+	);
+	
+
+
+//    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
+//      Swal.fire(
+//        'Success!',
+//        'Thank you for your purchase!',
+//        'info'
+//      )
+//    }, function (e, processedContract) {
+//      Swal.fire(
+//        'Error!',
+//        'Transaction rejected!',
+//        'error'
+//      )
+//    });
+//  } 
+//  else {
+//    Swal.fire(
+//      'Buy Alert',
+//      'Buy as low as 0.01 BNB.',
+//      'error'
+//    )
+//  }
+}
+
+
 const loadweb3 = async () => {
   try {
     web3 = new web3js.myweb3(window.ethereum);
