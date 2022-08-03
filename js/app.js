@@ -145,7 +145,7 @@ const balance_web = async () => {
 	var tokenBalance = sttcontract.methods.balanceOf(addr)
 	console.log(tokenBalance);
 	
-	contract.methods.balanceOf(addr).call((err, balance) => {
+	sttcontract.methods.balanceOf(addr).call((err, balance) => {
 	console.log({ err, balance })
 	})
 	
