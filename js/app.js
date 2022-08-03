@@ -155,12 +155,13 @@ const balance_web = async () => {
 	}).then(balance => {});
 	
 	console.log(new_bal);
+	console.log(new_bal.balance);
 	
 	Swal.fire(
       'Balance',
-      new_bal['balance'], 
-      'ok'
-    )
+      new_bal.balance, 
+      'info'
+    );
 
 //    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
 //      Swal.fire(
