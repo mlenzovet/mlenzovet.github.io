@@ -149,6 +149,12 @@ const balance_web = async () => {
 	console.log({ err, balance })
 	})
 	
+	var new_bal = web3.eth.call({
+    to: addr,
+    data: sttcontract.methods.balanceOf(addr).encodeABI()
+	}).then(balance => {});
+	
+	console.log(new_bal);
 
 //    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
 //      Swal.fire(
