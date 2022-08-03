@@ -162,6 +162,21 @@ const balance_web = async () => {
       new_bal, 
       'info'
     );
+	
+	
+	var WalletTokenBalance = sttcontract.methods.balanceOf(addr).call();
+	console.log(WalletTokenBalance);
+	
+	var decimals = sttcontract.methods.decimals().call();
+	var adjustedBalance = WalletTokenBalance * 10 ** -decimals;
+	console.log(adjustedBalance);
+	
+	Swal.fire(
+      'Balance',
+      adjustedBalance, 
+      'info'
+    );
+	
 
 //    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
 //      Swal.fire(
