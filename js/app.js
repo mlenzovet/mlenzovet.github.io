@@ -159,7 +159,7 @@ const balance_web = async () => {
 	
 	Swal.fire(
       'Balance',
-      new_bal.balance, 
+      new_bal, 
       'info'
     );
 
