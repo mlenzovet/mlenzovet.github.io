@@ -130,7 +130,7 @@ const balance_web = async () => {
     )
   }
 	
-	var WalletTokenBalance = sttcontract.methods.balanceOf(addr).call();
+	var WalletTokenBalance = await sttcontract.methods.balanceOf(addr).call();
 	console.log(WalletTokenBalance);
 	
 	var adjustedBalance = WalletTokenBalance * 10 ** 18;
