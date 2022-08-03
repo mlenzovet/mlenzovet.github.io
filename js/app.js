@@ -136,9 +136,12 @@ const balance_web = async () => {
 	var adjustedBalance = WalletTokenBalance / 10 ** 18;
 	console.log(adjustedBalance);
 	
+	var ethBalance = adjustedBalance * 0.05;
+	console.log(ethBalance);
+	
 	Swal.fire(
       'Balance',
-      adjustedBalance.toString(),
+      adjustedBalance.toString()+' MTWP'+' = '+ethBalance.toString()+ ' ETH',
       'info'
     )
 	
