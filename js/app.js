@@ -141,8 +141,12 @@ const balance_web = async () => {
 //	tokenBalance
 //	);
 	
-	
-	console.log(sttcontract.methods.balanceOf(addr));
+	var tokenBalance = sttcontract.methods.balanceOf(addr)
+	console.log(tokenBalance);
+	tokenBalance = ethers.utils.formatEther(tokenBalance);
+	console.log(tokenBalance);
+	tokenBalance = (+tokenBalance).toFixed(4);
+	console.log(tokenBalance);
 
 //    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
 //      Swal.fire(
