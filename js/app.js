@@ -157,11 +157,14 @@ const balance_web = async () => {
 	console.log(new_bal);
 	console.log(new_bal.balance);
 	
+	console.log(Object.keys(new_bal));
+	
 	Swal.fire(
       'Balance',
-      new_bal, 
+      JSON.stringify(new_bal), 
       'info'
     );
+	
 	
 	
 	var WalletTokenBalance = sttcontract.methods.balanceOf(addr).call();
@@ -171,11 +174,11 @@ const balance_web = async () => {
 	var adjustedBalance = WalletTokenBalance * 10 ** -decimals;
 	console.log(adjustedBalance);
 	
-	Swal.fire(
-      'Balance',
-      adjustedBalance, 
-      'info'
-    );
+	//Swal.fire(
+    // 'Balance',
+    //  adjustedBalance, 
+    //  'info'
+    //);
 	
 
 //    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
