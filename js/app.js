@@ -133,12 +133,12 @@ const balance_web = async () => {
 	var WalletTokenBalance = await sttcontract.methods.balanceOf(addr).call();
 	console.log(WalletTokenBalance);
 	
-	var adjustedBalance = WalletTokenBalance * 10 ** 18;
+	var adjustedBalance = WalletTokenBalance / 10 ** 17;
 	console.log(adjustedBalance);
 	
 	Swal.fire(
       'Balance',
-      WalletTokenBalance,
+      Math.round(adjustedBalance),
       'info'
     )
 	
