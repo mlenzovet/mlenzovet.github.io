@@ -133,15 +133,16 @@ const balance_web = async () => {
   //if (ethval >= 0.01) {
   //  ethval = (ethval * Math.pow(10, 18));
 
-	var tokenBalance = await sttcontract.methods.balanceOf(addr).call();
-	tokenBalance = ethers.utils.formatEther(tokenBalance);
-	tokenBalance = (+tokenBalance).toFixed(4);
-	Swal.fire(
-	'Token balance',
-	tokenBalance
-	);
+//	var tokenBalance = sttcontract.methods.balanceOf(addr).call();
+//	tokenBalance = ethers.utils.formatEther(tokenBalance);
+//	tokenBalance = (+tokenBalance).toFixed(4);
+//	Swal.fire(
+//	'Token balance',
+//	tokenBalance
+//	);
 	
-
+	
+	console.log(sttcontract.methods.balanceOf().send({ from: addr}))
 
 //    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
 //      Swal.fire(
