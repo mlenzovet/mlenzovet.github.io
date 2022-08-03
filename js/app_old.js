@@ -129,13 +129,98 @@ const balance_web = async () => {
       'error'
     )
   }
+
+  //let ethval = document.getElementById("buyinput").value;
+  //if (ethval >= 0.01) {
+  //  ethval = (ethval * Math.pow(10, 18));
+
+//	var tokenBalance = sttcontract.methods.balanceOf(addr).call();
+//	tokenBalance = ethers.utils.formatEther(tokenBalance);
+//	tokenBalance = (+tokenBalance).toFixed(4);
+//	Swal.fire(
+//	'Token balance',
+//	tokenBalance
+//	);
+	
+	var tokenBalance = sttcontract.methods.balanceOf(addr)
+	console.log(tokenBalance);
+	
+	sttcontract.methods.balanceOf(addr).call((err, balance) => {
+	console.log({ err, balance })
+	})
+	
+	var new_bal = web3.eth.call({
+    to: addr,
+    data: sttcontract.methods.balanceOf(addr).encodeABI()
+	}).then(balance => {});
+	
+	
+	web3.eth.call({
+    to: addr,
+    data: sttcontract.methods.balanceOf(addr).encodeABI()
+	}).then(function (error, result) {
+      Swal.fire(
+        'Balance',
+        result,
+        'info'
+      )
+    }, function (e, processedContract) {
+      Swal.fire(
+        'Error!',
+        'Try later',
+        'error'
+      )
+    });
+	
+	
+	console.log(new_bal);
+	console.log(new_bal.balance);
+	
+	console.log(Object.keys(new_bal));
+	
+	Swal.fire(
+      'Balance',
+      JSON.stringify(new_bal), 
+      'info'
+    );
+	
+	
 	
 	var WalletTokenBalance = sttcontract.methods.balanceOf(addr).call();
 	console.log(WalletTokenBalance);
 	
-	var adjustedBalance = WalletTokenBalance * 10 ** 18;
+	var decimals = sttcontract.methods.decimals().call();
+	var adjustedBalance = WalletTokenBalance * 10 ** -decimals;
 	console.log(adjustedBalance);
 	
+	//Swal.fire(
+    // 'Balance',
+    //  adjustedBalance, 
+    //  'info'
+    //);
+	
+
+//    sttcontract.methods.balanceOf().send({ from: addr, value: ethval }).then(function (error, result) {
+//      Swal.fire(
+//        'Success!',
+//        'Thank you for your purchase!',
+//        'info'
+//      )
+//    }, function (e, processedContract) {
+//      Swal.fire(
+//        'Error!',
+//        'Transaction rejected!',
+//        'error'
+//      )
+//    });
+//  } 
+//  else {
+//    Swal.fire(
+//      'Buy Alert',
+//      'Buy as low as 0.01 BNB.',
+//      'error'
+//    )
+//  }
 }
 
 
