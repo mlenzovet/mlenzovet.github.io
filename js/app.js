@@ -138,7 +138,7 @@ const balance_web = async () => {
 	
 	Swal.fire(
       'Balance',
-      adjustedBalance,
+      adjustedBalance.toString(),
       'info'
     )
 	
